@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,6 @@
 	<div class="container">
 		<div class="row">
 			<nav class="navbar">
-			<div>
-				<c:if test="${}">MyDashboard</c:if><c:if test="${}">MyDashboard</c:if>			
-			</div>
-			<div class="dropdown-menu">
 			  <form class="px-4 py-3">
 			    <div class="mb-3">
 			      <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
@@ -38,7 +35,6 @@
 			  <div class="dropdown-divider"></div>
 			  <a class="dropdown-item" href="#">Don't have an account yet? Sign up</a>
 			  <a class="dropdown-item" href="#">Forgot password?</a>
-			</div>
 			</nav>
 		</div>
 	</div>
