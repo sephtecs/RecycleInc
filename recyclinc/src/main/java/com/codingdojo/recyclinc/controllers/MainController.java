@@ -30,7 +30,7 @@ public class MainController {
     public String index(Model model) {
         model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
-        return "index.jsp";
+        return "registration.jsp";
     }
     
     @GetMapping("/logout")
