@@ -25,21 +25,43 @@ public class MainController {
 	
 	
 	
-	 // Brings them to the login/register page.
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("newUser", new User());
-        model.addAttribute("newLogin", new LoginUser());
-        return "locationList.jsp";
-    }
-    
-    @GetMapping("/register")
-    public String register(Model model) {
-        model.addAttribute("newUser", new User());
-        model.addAttribute("newLogin", new LoginUser());
-        return "registration.jsp";
-    }
-    
+	// Immediately brings them to the dash-board page
+	@GetMapping("/")
+	public String dashboard() {
+		return "index.jsp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+   
+    // brings them to the login page
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("newUser", new User());
@@ -47,6 +69,20 @@ public class MainController {
         return "login.jsp";
     }
     
+    // Allows a current user to login if validations pass
+    @PostMapping("/login")
+    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
+    		BindingResult result, Model model, HttpSession session) {
+    	User user = userServ.login(newLogin, result);
+    	if(result.hasErrors()) {
+    		model.addAttribute("newUser", new User());
+    		return "index.jsp";
+    	}
+    	session.setAttribute("user_id", user.getId());
+    	return "login.jsp";
+    }
+    
+    // logs the user out and takes them out of session
     @GetMapping("/logout")
     public String logout(HttpSession session) {
     	session.invalidate();
@@ -54,6 +90,13 @@ public class MainController {
     }
     
     
+    // Brings them to the register page.    
+    @GetMapping("/register")
+    public String register(Model model) {
+    	model.addAttribute("newUser", new User());
+    	model.addAttribute("newLogin", new LoginUser());
+    	return "registration.jsp";
+    }
     
     // Registers the user and then brings them to the home page if validations pass
     @PostMapping("/register")
@@ -69,18 +112,6 @@ public class MainController {
     }
     
     
-    // Allows a current user to login if validations pass
-//    @PostMapping("/login")
-//    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
-//            BindingResult result, Model model, HttpSession session) {
-//        User user = userServ.login(newLogin, result);
-//        if(result.hasErrors()) {
-//            model.addAttribute("newUser", new User());
-//            return "index.jsp";
-//        }
-//        session.setAttribute("user_id", user.getId());
-//        return "login.jsp";
-//    }
 	
 	
 	
