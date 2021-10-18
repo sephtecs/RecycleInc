@@ -31,12 +31,12 @@
                 
                 <div class="form-outline mb-4">
                   <label>Email</label>
-                  <form:input path="email" class="form-control form-control-lg" />
+                  <form:input type="email" path="email" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <label>Password</label>
-                  <form:input path="password" class="form-control form-control-lg" />
+                  <form:input type="password" path="password" class="form-control form-control-lg" />
                 </div>
 
                 <div class="d-flex justify-content-center">

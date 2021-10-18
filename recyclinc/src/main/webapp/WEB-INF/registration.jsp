@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Sign Up</h2>
 
-              <form:form action="/" method="post" modelAttribute="newUser">
+              <form:form action="/register" method="post" modelAttribute="newUser">
                 
                 <div class="form-outline mb-4">
                   <form:errors path="firstName" class="text-danger" />
@@ -36,6 +37,7 @@
                 </div>
                 
                  <div class="form-outline mb-4">
+                 <form:errors path="lastName" class="text-danger" />
                   <label>Last Name</label>
                   <form:input path="lastName" class="form-control form-control-lg" />
                 </div>
@@ -46,13 +48,15 @@
                 </div>
 
                 <div class="form-outline mb-4">
+                <form:errors path="password" class="text-danger" />
                   <label>Password</label>
-                  <form:input path="password" class="form-control form-control-lg" />
+                  <form:input type="password" path="password" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
+                <form:errors path="password" class="text-danger" />
                   <label>Confirm Password</label>
-                  <form:input path="confirm" class="form-control form-control-lg" />
+                  <form:input type="password" path="confirm" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">

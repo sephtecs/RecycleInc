@@ -95,7 +95,6 @@ public class MainController {
     @GetMapping("/register")
     public String register(Model model) {
     	model.addAttribute("newUser", new User());
-    	model.addAttribute("newLogin", new LoginUser());
     	return "registration.jsp";
     }
     
@@ -105,7 +104,7 @@ public class MainController {
             BindingResult result, Model model, HttpSession session) {
         userServ.register(newUser, result);
         if(result.hasErrors()) {
-            model.addAttribute("newLogin", new LoginUser());
+            model.addAttribute("newUser", new User());
             return "index.jsp";
         }
         session.setAttribute("user_id", newUser.getId());
