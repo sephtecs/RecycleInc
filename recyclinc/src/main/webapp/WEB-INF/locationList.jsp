@@ -18,9 +18,7 @@
 </head>
 <body>
 
-<section class="vh-100 bg-image" style="background-image: url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2429&q=80');">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
 	 <a class="navbar-brand" href="#">RecyclInc</a>
 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -40,12 +38,32 @@
 	  </div>
 	</nav>
 	
-	<div>
-		<h1 class="d-flex justify-content-center">Recycl-Inc</h1>
-		<h3 class="d-flex justify-content-center">Your one-stop-shop for all your recycling needs!</h3>
+	<div class="text-center">
+		<img src="https://images.unsplash.com/photo-1560532806-dbb46d88b494?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="image rounded" alt="Responsive image">
+		<hr />
+		<h2>List of Locations</h2>
+		<br />
 	</div>
 	
-</section>
+	<table class="table">
+
+			<tbody class="text-center">
+				<tr>
+					<td><a href="#">Location 1</a></td>
+					<td><a href="#">Location 2</a></td>
+					<td><a href="#">Location 3</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">Location 4</a></td>
+					<td><a href="#">Location 5</a></td>
+					<td><a href="#">Location 6</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">Location 7</a></td>
+					<td><a href="#">Location 8</a></td>
+					<td><a href="#">Location 9</a></td>
+				</tr>
+			</tbody>
 
 </body>
 </html>
