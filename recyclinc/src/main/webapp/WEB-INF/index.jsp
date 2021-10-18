@@ -21,7 +21,9 @@
 <section class="vh-100 bg-image" style="background-image: url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2429&q=80');">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-	 <a class=" navbar-brand" href="#">Recycl-Inc</a>
+
+	 <a class="navbar-brand" href="/">Recycl-Inc</a>
+
 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	 </button>
@@ -33,11 +35,25 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Our Mission</a>
 	      </li>
+
+	      <li class="nav-item">
+	      <c:if test="${user.id == null}">
+	        <a class="nav-link" href="/login">Login</a>
+	      </c:if>
+	      <c:if test="${user.id != null }">
+	      	<a class="nav-link" href="/userdash/${user.id}">My Dashboard</a>
+	      </c:if>
+	      </li>
 	    </ul>
 	  </div>
-		<div>
-        	<a class="nav-link nav-item" href="/login">Login</a>
-		</div>
+	  <div>
+	  <c:if test="${user.id == null }">
+	  <a href="/register">Sign-up</a>
+	  </c:if>
+	  <c:if test="${user.id != null }">
+	  	<a href="/logout">Logout</a>
+	  </c:if>
+	  </div>
 
 	</nav>
 	

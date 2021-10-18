@@ -27,7 +27,15 @@ public class MainController {
 	
 	// Immediately brings them to the dash-board page
 	@GetMapping("/")
-	public String dashboard() {
+	public String dashboard(Model model, HttpSession session) {
+		Long userId = (Long) session.getAttribute("user_id");
+		if(userId == null) {
+			return "index.jsp";
+		}
+		User user = userServ.findUser(userId);
+		model.addAttribute("user", user);
+		
+		
 		return "index.jsp";
 	}
 	
@@ -78,7 +86,7 @@ public class MainController {
     	model.addAttribute("newUser", new User());
     	User user = userServ.login(newLogin, result);
     	session.setAttribute("user_id", user.getId());
-    	return "index.jsp";
+    	return "redirect:/";
     }
     
     // logs the user out and takes them out of session

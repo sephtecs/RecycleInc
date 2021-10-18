@@ -31,11 +31,9 @@ public class User {
     private Long id;
     
     @NotEmpty(message="First Name is required!")
-    @Size(min=1, max=30, message="First name must be between 3 and 30 characters")
     private String firstName;
     
     @NotEmpty(message="Last Name is required!")
-    @Size(min=1, max=30, message="Last name must be between 1 and 30 characters")
     private String lastName;
     
 	@NotEmpty(message="Email is required!")
