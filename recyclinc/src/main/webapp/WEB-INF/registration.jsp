@@ -44,6 +44,7 @@
                 </div>
 
                 <div class="form-outline mb-4">
+                  <form:errors path="email" class="text-danger" />
                   <label>Your Email</label>
                   <form:input path="email" class="form-control form-control-lg" />
                 </div>
@@ -55,7 +56,7 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                <form:errors path="password" class="text-danger" />
+                  <form:errors path="password" class="text-danger" />
                   <label>Confirm Password</label>
                   <form:input type="password" path="confirm" class="form-control form-control-lg" />
                 </div>

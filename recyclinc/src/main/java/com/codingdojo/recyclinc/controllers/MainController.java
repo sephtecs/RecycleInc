@@ -72,11 +72,11 @@ public class MainController {
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
     		BindingResult result, Model model, HttpSession session) {
-    	User user = userServ.login(newLogin, result);
     	if(result.hasErrors()) {
-    		model.addAttribute("newUser", new User());
-    		return "index.jsp";
+    		return "login.jsp";
     	}
+    	model.addAttribute("newUser", new User());
+    	User user = userServ.login(newLogin, result);
     	session.setAttribute("user_id", user.getId());
     	return "index.jsp";
     }
@@ -100,11 +100,10 @@ public class MainController {
     @PostMapping("/register/newUser")
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
-        userServ.register(newUser, result);
         if(result.hasErrors()) {
-            model.addAttribute("newUser", new LoginUser());
-            return "index.jsp";
+            return "registration.jsp";
         }
+        userServ.register(newUser, result);
         session.setAttribute("user_id", newUser.getId());
         return "redirect:/";
     }
