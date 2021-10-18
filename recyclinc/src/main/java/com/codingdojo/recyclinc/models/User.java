@@ -38,7 +38,6 @@ public class User {
     @Size(min=1, max=30, message="Last name must be between 1 and 30 characters")
     private String lastName;
     
-
 	@NotEmpty(message="Email is required!")
     @Email(message="Please enter a valid email!")
     private String email;

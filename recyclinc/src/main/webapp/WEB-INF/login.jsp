@@ -27,7 +27,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">MEMBERS CLUB</h2>
 
-              <form:form action="/" method="post" modelAttribute="newUser">
+              <form:form action="/login" method="post" modelAttribute="newLogin">
                 
                 <div class="form-outline mb-4">
                   <label>Email</label>
@@ -43,7 +43,7 @@
                   <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Don't have an account yet?<a href="/" class="fw-bold text-body"><u> Sign up!</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Don't have an account yet?<a href="/register" class="fw-bold text-body"><u> Sign up!</u></a></p>
 
               </form:form>
 

@@ -62,10 +62,8 @@ public class MainController {
 	
    
     // brings them to the login page
-
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
         return "login.jsp";
     }
@@ -80,7 +78,7 @@ public class MainController {
     		return "index.jsp";
     	}
     	session.setAttribute("user_id", user.getId());
-    	return "login.jsp";
+    	return "index.jsp";
     }
     
     // logs the user out and takes them out of session
@@ -95,17 +93,16 @@ public class MainController {
     @GetMapping("/register")
     public String register(Model model) {
     	model.addAttribute("newUser", new User());
-    	model.addAttribute("newLogin", new LoginUser());
     	return "registration.jsp";
     }
     
     // Registers the user and then brings them to the home page if validations pass
-    @PostMapping("/register")
+    @PostMapping("/register/newUser")
     public String register(@Valid @ModelAttribute("newUser") User newUser, 
             BindingResult result, Model model, HttpSession session) {
         userServ.register(newUser, result);
         if(result.hasErrors()) {
-            model.addAttribute("newLogin", new LoginUser());
+            model.addAttribute("newUser", new LoginUser());
             return "index.jsp";
         }
         session.setAttribute("user_id", newUser.getId());
