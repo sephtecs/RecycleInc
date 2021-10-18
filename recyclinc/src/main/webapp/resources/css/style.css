@@ -18,3 +18,35 @@
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
 }
+
+h1 {
+	color: white;
+	font-family: Tsukushi A Round Gothic;
+	font-weight: bold;
+	margin-top: 50px;
+	font-size: 100px; 
+}
+
+h2 {
+	font-family: Tsukushi A Round Gothic;
+	font-weight: bold;
+	margin-top: 50px;
+}
+
+h3 {
+	color: white;
+	font-family: Tsukushi A Round Gothic;
+}
+
+.image {
+	height: 300px;
+	width: 500px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.table {
+	text-decoration: none;
+	border-color: white;
+	margin-top: 10px;
+}
