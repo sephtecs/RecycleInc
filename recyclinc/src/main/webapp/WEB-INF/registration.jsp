@@ -28,7 +28,8 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Sign Up</h2>
 
-              <form:form action="/register" method="post" modelAttribute="newUser">
+
+              <form:form action="/register/newUser" method="post" modelAttribute="newUser">
                 
                 <div class="form-outline mb-4">
                   <form:errors path="firstName" class="text-danger" />

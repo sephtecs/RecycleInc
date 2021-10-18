@@ -64,6 +64,8 @@
 					<td><a href="#">Location 9</a></td>
 				</tr>
 			</tbody>
+			
+	</table>
 
 </body>
 </html>
