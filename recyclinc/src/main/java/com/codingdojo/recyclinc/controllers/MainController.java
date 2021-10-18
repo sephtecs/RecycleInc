@@ -33,6 +33,13 @@ public class MainController {
         return "registration.jsp";
     }
     
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("newUser", new User());
+        model.addAttribute("newLogin", new LoginUser());
+        return "login.jsp";
+    }
+    
     @GetMapping("/logout")
     public String logout(HttpSession session) {
     	session.invalidate();
@@ -51,24 +58,22 @@ public class MainController {
             return "index.jsp";
         }
         session.setAttribute("user_id", newUser.getId());
-        return "redirect:/home";
+        return "redirect:/";
     }
-    
-    
     
     
     // Allows a current user to login if validations pass
-    @PostMapping("/login")
-    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
-            BindingResult result, Model model, HttpSession session) {
-        User user = userServ.login(newLogin, result);
-        if(result.hasErrors()) {
-            model.addAttribute("newUser", new User());
-            return "index.jsp";
-        }
-        session.setAttribute("user_id", user.getId());
-        return "redirect:/home";
-    }
+//    @PostMapping("/login")
+//    public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, 
+//            BindingResult result, Model model, HttpSession session) {
+//        User user = userServ.login(newLogin, result);
+//        if(result.hasErrors()) {
+//            model.addAttribute("newUser", new User());
+//            return "index.jsp";
+//        }
+//        session.setAttribute("user_id", user.getId());
+//        return "login.jsp";
+//    }
 	
 	
 	
