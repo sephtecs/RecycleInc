@@ -31,13 +31,15 @@
                 
                 <div class="form-outline mb-4">
                   <form:errors path="email" class="text-danger"/>
-                  <label>Email</label>
+                  <br/>
+                  <label>Email:</label>
                   <form:input type="email" path="email" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <form:errors path="password" class="text-danger"/>
-                  <label>Password</label>
+                  <br/>
+                  <label>Password:</label>
                   <form:input type="password" path="password" class="form-control form-control-lg" />
                 </div>
 

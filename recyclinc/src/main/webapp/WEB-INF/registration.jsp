@@ -33,31 +33,36 @@
                 
                 <div class="form-outline mb-4">
                   <form:errors path="firstName" class="text-danger" />
-                  <label>First Name</label>
+                  <br/>
+                  <label>First Name:</label>
                   <form:input path="firstName" class="form-control form-control-lg" />               
                 </div>
                 
                  <div class="form-outline mb-4">
                  <form:errors path="lastName" class="text-danger" />
-                  <label>Last Name</label>
+                 <br/>
+                  <label>Last Name:</label>
                   <form:input path="lastName" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <form:errors path="email" class="text-danger" />
-                  <label>Your Email</label>
+                  <br/>
+                  <label>Your Email:</label>
                   <form:input path="email" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
                 <form:errors path="password" class="text-danger" />
-                  <label>Password</label>
+                <br/>
+                  <label>Password:</label>
                   <form:input type="password" path="password" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
                   <form:errors path="password" class="text-danger" />
-                  <label>Confirm Password</label>
+                  <br/>
+                  <label>Confirm Password:</label>
                   <form:input type="password" path="confirm" class="form-control form-control-lg" />
                 </div>
 

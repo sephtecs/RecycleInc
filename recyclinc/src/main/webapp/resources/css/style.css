@@ -45,6 +45,10 @@ h3 {
 	margin-bottom: 50px;
 }
 
+.navbar-brand {
+	margin-left: 10px;
+}
+
 .youtube {
     width: 690px;
     height: 315px;
