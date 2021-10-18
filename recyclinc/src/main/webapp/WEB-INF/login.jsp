@@ -30,11 +30,13 @@
               <form:form action="/login" method="post" modelAttribute="newLogin">
                 
                 <div class="form-outline mb-4">
+                  <form:errors path="email" class="text-danger"/>
                   <label>Email</label>
                   <form:input type="email" path="email" class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline mb-4">
+                  <form:errors path="password" class="text-danger"/>
                   <label>Password</label>
                   <form:input type="password" path="password" class="form-control form-control-lg" />
                 </div>
