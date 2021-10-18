@@ -25,43 +25,8 @@ public class MainController {
 	
 	
 	
-	// Immediately brings them to the dash-board page
-	@GetMapping("/")
-	public String dashboard() {
-		return "index.jsp";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-   
-    // brings them to the login page
+
+
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("newUser", new User());
