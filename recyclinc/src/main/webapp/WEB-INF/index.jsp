@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Main Dash-board</title>
 	<!-- for Bootstrap CSS -->
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 	<!-- YOUR own local CSS -->
@@ -40,9 +40,13 @@
 	  </div>
 	</nav>
 	
-	<div>
+	<div class="justify-content-center">
 		<h1 class="d-flex justify-content-center">Recycl-Inc</h1>
 		<h3 class="d-flex justify-content-center">Your one-stop-shop for all your recycling needs!</h3>
+		<form class="col-4 d-flex justify-content-center">
+			<input class="form-control me-2" type="search" placeholder="Enter Your Zip" aria-label="Search">
+			<button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
 	</div>
 	
 </section>
