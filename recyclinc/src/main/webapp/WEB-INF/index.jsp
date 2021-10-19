@@ -21,7 +21,11 @@
 <section class="vh-100 bg-image" style="background-image: url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2429&q=80');">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
-
+	
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-tree-fill" viewBox="0 0 16 16">
+  		<path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/>
+	</svg>
+	
 	 <a class="navbar-brand" href="/">Recycl-Inc</a>
 
 	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +65,16 @@
 		<h1 class="d-flex justify-content-center">Recycl-Inc</h1>
 		<h3 class="d-flex justify-content-center">A one-stop-shop for all your recycling needs!</h3>
 			<br />
-		<form action="/locations" class="col-4 mx-auto d-flex justify-content-center">
-			<input type="text" class="form-control" placeholder="Zipcode" aria-label="Zipcode" aria-describedby="basic-addon1">
-			<button class="btn btn-success" type="submit">Go!</button>
+
+		<form class="col-4 mx-auto d-flex justify-content-center">
+			<input type="text" class="form-control" placeholder="Zipcode" aria-label="Username" aria-describedby="basic-addon1">
+			<button class="btn btn-success" type="submit">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16">
+	  				<path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/>
+				</svg>
+			</button>
 		</form>
+    
 	</div>
 	
 	<div class="youtube">
