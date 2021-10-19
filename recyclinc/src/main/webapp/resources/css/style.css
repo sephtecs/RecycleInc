@@ -49,6 +49,15 @@ h3 {
 	margin-left: 10px;
 }
 
+.box-1 {
+	margin-top: 40px;
+	height: 650px;
+	width: 1300px;
+	border-style: solid;
+	border-color: black;
+	border-width: 4px;
+    }
+
 .youtube {
     width: 645px;
     height: 315px;
