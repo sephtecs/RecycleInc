@@ -22,41 +22,43 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
 	
-	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-tree-fill" viewBox="0 0 16 16">
+	<svg style="margin-left:10px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-tree-fill" viewBox="0 0 16 16">
   		<path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/>
 	</svg>
 	
-	 <a class="navbar-brand" href="/">Recycl-Inc</a>
+	
 
-	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	 </button>
-	  <div class="collapse navbar-collapse" id="navbarText">
-	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Our Mission</a>
-	      </li>
-
-	      <li class="nav-item">
-	      <c:if test="${user.id == null}">
-	        <a class="nav-link" href="/login">Login</a>
-	      </c:if>
-	      <c:if test="${user.id != null }">
-	      	<a class="nav-link" href="/userdash/${user.id}">My Dashboard</a>
-	      </c:if>
-	      </li>
-	    </ul>
-	  </div>
+	 <a class="navbar-brand" style="margin-left:10px" href="/">Recycl-Inc</a>
+		  <div class="collapse navbar-collapse" id="navbarText">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Our Mission</a>
+		      </li>
+	
+		      <li class="nav-item">
+		      <c:if test="${user.id == null}">
+		        <a class="nav-link" href="/login">Login</a>
+		      </c:if>
+		      <c:if test="${user.id != null }">
+		      	<a class="nav-link" href="/userdash/${user.id}">My Dashboard</a>
+		      </c:if>
+		      </li>
+		    </ul>
+		  </div>
 	  <div>
+	  
+	  <div class="login-reg">
 	  <c:if test="${user.id == null }">
-	  <a href="/register">Sign-up</a>
+	  	<a href="/register">Sign-up</a>
 	  </c:if>
 	  <c:if test="${user.id != null }">
 	  	<a href="/logout">Logout</a>
 	  </c:if>
+	  </div>
+	  
 	  </div>
 
 	</nav>
