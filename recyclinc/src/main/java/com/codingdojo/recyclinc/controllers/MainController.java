@@ -53,6 +53,11 @@ public class MainController {
 		return "locationList.jsp";
 	}
 	
+	@GetMapping("/mycenters")
+	public String centers() {
+		return "mycenters.jsp";
+	}
+	
 	
 	
 	
