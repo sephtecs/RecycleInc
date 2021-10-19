@@ -15,6 +15,8 @@
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+	<style>iframe {width:100%;height:100%;}</style>
+	<script src="/resources/js/maps.js"></script>
 </head>
 <body>
 
@@ -38,12 +40,32 @@
 	  </div>
 	</nav>
 	
-	<div class="text-center">
-		<img src="https://images.unsplash.com/photo-1560532806-dbb46d88b494?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="image rounded" alt="Responsive image">
-		<hr />
+	<div class="justify-content-center mx-auto d-flex">
 		<h2>List of Locations</h2>
+		<hr />
 		<br />
 	</div>
+	<div id="map"></div>
+	<hr/>
+	
+
+
+	
+	
+	
+	<div class="col-4 justify-content-center">	
+		<form id="location-form">
+			<input id="location-input" type="text" class="form-control form-control-lg" placeholder="Zipcode">
+			<input type="submit" value="Submit" class="btn btn-primary">
+		</form>
+	</div>
+	
+	
+	<div id="formattedAddressOutput">${formattedAddress }</div>
+	
+	
+	
+	
 	
 	<table class="table">
 
@@ -66,6 +88,9 @@
 			</tbody>
 			
 	</table>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt7ZofcfDKCTzFR6wmAk6cOZngsw5NSEE&callback=initMap">
+	</script>
 
 </body>
 </html>

@@ -39,6 +39,16 @@ public class MainController {
 		return "index.jsp";
 	}
 	
+
+
+	
+	
+	// ---------- Locations Controller -------------
+	
+	@GetMapping("/locations")
+	public String locations() {
+		return "locationList.jsp";
+	}
 	
 	
 	
@@ -62,10 +72,7 @@ public class MainController {
 	
 	
 	
-	
-	
-	
-	
+	// ------------- Login and Registration Methods --------------------
 	
 	
    

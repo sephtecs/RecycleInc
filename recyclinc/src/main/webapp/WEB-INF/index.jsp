@@ -61,8 +61,8 @@
 		<h1 class="d-flex justify-content-center">Recycl-Inc</h1>
 		<h3 class="d-flex justify-content-center">A one-stop-shop for all your recycling needs!</h3>
 			<br />
-		<form class="col-4 mx-auto d-flex justify-content-center">
-			<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+		<form action="/locations" class="col-4 mx-auto d-flex justify-content-center">
+			<input type="text" class="form-control" placeholder="Zipcode" aria-label="Zipcode" aria-describedby="basic-addon1">
 			<button class="btn btn-success" type="submit">Go!</button>
 		</form>
 	</div>
