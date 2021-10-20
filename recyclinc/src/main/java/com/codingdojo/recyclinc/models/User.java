@@ -4,7 +4,6 @@ package com.codingdojo.recyclinc.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,7 +53,9 @@ public class User {
 	private Date createdAt;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
-  
+	
+	@OneToMany(mappedBy="owner", fetch = FetchType.LAZY)
+	private List<Interaction> interactions;
     
     public User() {}
 
@@ -65,6 +66,16 @@ public class User {
 	public Long getId() {
 		return id;
 	}
+
+	public List<Interaction> getNotes() {
+		return interactions;
+	}
+
+
+	public void setNotes(List<Interaction> interactions) {
+		this.interactions = interactions;
+	}
+
 
 	public String getFirstName() {
 		return firstName;
