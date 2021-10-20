@@ -66,7 +66,7 @@
 		<h3 class="d-flex justify-content-center">A one-stop-shop for all your recycling needs!</h3>
 			<br />
 
-		<form class="col-4 mx-auto d-flex justify-content-center">
+		<form action="/locations" class="col-4 mx-auto d-flex justify-content-center">
 			<input type="text" class="form-control" placeholder="Zipcode" aria-label="Username" aria-describedby="basic-addon1">
 			<button class="btn btn-success" type="submit">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16">

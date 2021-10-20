@@ -12,11 +12,8 @@
 	<!-- YOUR own local CSS -->
 	<link rel="stylesheet" href="/css/main.css"/>
 	<!-- For any Bootstrap that uses JS or jQuery-->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 	<style>iframe {width:100%;height:100%;}</style>
-	<script src="/resources/js/maps.js"></script>
 </head>
 <body>
 
@@ -43,7 +40,7 @@
 	<div class="justify-content-center mx-auto d-flex">
 		<h2>List of Locations</h2>
 		<hr />
-		<br />
+		<br>
 	</div>
 	<div id="map"></div>
 	<hr/>
@@ -56,12 +53,11 @@
 	<div class="col-4 justify-content-center">	
 		<form id="location-form">
 			<input id="location-input" type="text" class="form-control form-control-lg" placeholder="Zipcode">
-			<input type="submit" value="Submit" class="btn btn-primary">
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 	
 	
-	<div id="formattedAddressOutput">${formattedAddress }</div>
 	
 	
 	
@@ -71,26 +67,24 @@
 
 			<tbody class="text-center">
 				<tr>
-					<td><a href="#">Location 1</a></td>
-					<td><a href="#">Location 2</a></td>
-					<td><a href="#">Location 3</a></td>
+					<td id="formatted-address">${formattedAddress }</td>
 				</tr>
 				<tr>
-					<td><a href="#">Location 4</a></td>
-					<td><a href="#">Location 5</a></td>
-					<td><a href="#">Location 6</a></td>
+
 				</tr>
 				<tr>
-					<td><a href="#">Location 7</a></td>
-					<td><a href="#">Location 8</a></td>
-					<td><a href="#">Location 9</a></td>
+					
 				</tr>
 			</tbody>
 			
 	</table>
 	<script async defer
-	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt7ZofcfDKCTzFR6wmAk6cOZngsw5NSEE&callback=initMap">
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt7ZofcfDKCTzFR6wmAk6cOZngsw5NSEE&libraries=places&callback=initMap">
 	</script>
-
+	<script src="/resources/js/maps.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	
 </body>
 </html>
