@@ -99,7 +99,7 @@ let places;
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
 			params:{
 				address:location,
-				key: 'AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM'
+				key: ''
 			}	
 		})
 		.then(function(response){
