@@ -18,7 +18,13 @@
 </head>
 <body>
 
-<section class="vh-100 bg-image" style="background-image: url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2429&q=80');">
+<!-- Background image -->
+<div class="bg-image" 
+     style="background-image: url('https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2429&q=80');
+            height: 100vh">
+<!-- Background image -->
+
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
 	
@@ -31,9 +37,6 @@
 	 <a class="navbar-brand" style="margin-left:10px" href="/">Recycl-Inc</a>
 		  <div class="collapse navbar-collapse" id="navbarText">
 		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="#">Home</a>
-		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Our Mission</a>
 		      </li>
@@ -43,7 +46,7 @@
 		        <a class="nav-link" href="/login">Login</a>
 		      </c:if>
 		      <c:if test="${user.id != null }">
-		      	<a class="nav-link" href="/userdash/${user.id}">My Dashboard</a>
+		      	<a class="nav-link" href="/userdash">My Dashboard</a>
 		      </c:if>
 		      </li>
 		    </ul>
@@ -84,7 +87,237 @@
   		<iframe width="660" height="415" src="https://www.youtube.com/embed/4JDGFNoY-rQ" allowfullscreen></iframe>
 	</div>
 	
-</section>
+</div>
+
+<div class="topspacing wm-bg-gray">
+	<div class="bg-white">
+		<div class="wm-bg-gray" style="position: relative">
+				<div>
+					<div class="container">
+						<div class="d-flex flex-column-reverse flex-xl-row-reverse align-items-center">
+							<div class="d-flex text-edge-container" style="flex-grow: 1; flex-shrink: 1; flex-basis: inherit; margin-top: 10px">
+								<div class="class="edge d-none d-xl-block">
+									<div class="text-container bg-white d-flex flex-column">
+							            <p style="margin-left: 20px"><strong>Doloremque vero ex debitis veritatis?</strong></p>
+							            <p style="margin-left: 20px" class="text-muted">
+							              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+							              nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+							              alias, unde optio accusantium soluta, iusto molestiae adipisci et?
+							            </p>
+  										<p style="margin-left: 20px" class="text-muted">
+							              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+							              eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+							              sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+							            </p>
+							            <p style="margin-left: 20px"><strong>Doloremque vero ex debitis veritatis?</strong></p>
+							            <p style="margin-left: 20px" class="text-muted">
+							              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
+							              nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
+							              alias, unde optio accusantium soluta, iusto molestiae adipisci et?
+							            </p>
+									</div>
+								</div>
+							</div>
+							<div margin-top:20px" class="rounded mx-auto d-block image-edge-container image-edge-container-left d-flex d-xl-block background-transparent">
+								<div class="image-container">
+									<image src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80">
+									</image>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example21" class="form-control" />
+              <label class="form-label" for="form5Example21">Email address</label>
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">www.codingdojo.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 </body>
 </html>

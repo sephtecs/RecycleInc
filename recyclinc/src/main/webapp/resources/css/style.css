@@ -38,6 +38,7 @@ h3 {
 	font-family: Tsukushi A Round Gothic;
 }
 
+
 .image {
 	height: 300px;
 	width: 500px;
@@ -83,9 +84,14 @@ h3 {
 }
 
 html, body {
-  height: 70%;
-  margin: 0;
-  padding: 0;
+	height: 70%;
+	margin: 0;
+	padding: 0;
+}
+
+bg-image {
+	max-width: 100%;
+	height: auto;
 }
 
 

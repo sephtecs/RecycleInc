@@ -5,29 +5,34 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="notes")
+@Table(name="interactions")
 public class Interaction {
 	
-    @NotNull
-    @Size(min = 2, max = 200, message="Title must be at least 2 characters.")
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	
+    @Size(min = 2, max = 200, message="Comment must be at least 2 characters.")
     private String comment;
     
-    @NotNull
-    @Size(min = 2, max = 200, message="Title must be at least 2 characters.")
+    @Size(min = 2, max = 200, message="Testimonial must be at least 2 characters.")
     private String testimonial;
     
-    @NotNull
-    @Size(min = 0, max = 100000)
-    private Double numberOfLikes;
+    @Min(0)
+    private Integer numberOfLikes;
     
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -42,12 +47,13 @@ public class Interaction {
     
     
     // ---------- empty constructor ----------
-	public Interaction() {
-	}
+	public Interaction() {}
 	
 	
 	
 	// ---------- getters & setters ----------
+
+
 
 	public String getComment() {
 		return comment;
@@ -73,9 +79,31 @@ public class Interaction {
 		this.owner = owner;
 	}
 
-	public void setNumberOfLikes(Double numberOfLikes) {
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public Integer getNumberOfLikes() {
+		return numberOfLikes;
+	}
+
+
+
+	public void setNumberOfLikes(Integer numberOfLikes) {
 		this.numberOfLikes = numberOfLikes;
 	}
+
+
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -92,5 +120,6 @@ public class Interaction {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
     
 }

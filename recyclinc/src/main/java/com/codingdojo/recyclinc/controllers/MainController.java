@@ -1,6 +1,6 @@
 package com.codingdojo.recyclinc.controllers;
 
-import java.net.http.HttpResponse;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -11,11 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.codingdojo.recyclinc.models.Interaction;
 import com.codingdojo.recyclinc.models.LoginUser;
 import com.codingdojo.recyclinc.models.User;
+import com.codingdojo.recyclinc.services.InteractionService;
 import com.codingdojo.recyclinc.services.UserService;
 
 @Controller
@@ -24,8 +28,8 @@ public class MainController {
 	@Autowired
 	private UserService userServ;
 	
-	
-	
+	@Autowired
+	private InteractionService interServ;
 	
 	
 	// Immediately brings them to the dash-board page
@@ -35,7 +39,7 @@ public class MainController {
 		if(userId == null) {
 			return "index.jsp";
 		}
-		User user = userServ.findUser(userId);
+		User user = userServ.findUserById(userId);
 		model.addAttribute("user", user);
 		
 		
@@ -46,44 +50,54 @@ public class MainController {
 
 	
 	
-	// ---------- Locations Controller -------------
+	// ---------- User Locations, Notes & Comments Controller -------------
 	
 	@GetMapping("/locations")
 	public String locations() {
 		return "locationList.jsp";
 	}
 	
-	@GetMapping("/mycenters")
-	public String centers() {
-		return "mycenters.jsp";
+	
+	@RequestMapping("/userdash")
+	public String newNote(HttpSession session, Model model) { // an empty class and with the below method, we fill it with values
+		List<Interaction> allInteractions = interServ.allInteractions();
+		Long userId = (Long) session.getAttribute("user_id");
+		model.addAttribute("newUser", new User());
+		if(userId == null) {
+			return "redirect:/userdash";
+		}
+		User user = userServ.findUserById(userId);
+		Interaction interaction = new Interaction();
+		model.addAttribute("user", user);
+		model.addAttribute("interaction", interaction);
+		model.addAttribute("allInteractions", allInteractions);
+		return "mylocations.jsp";
 	}
 	
+	@RequestMapping(value="/userdash/comment", method=RequestMethod.POST)
+	public String createInteraction(@Valid @ModelAttribute("interaction") Interaction interaction, BindingResult result, HttpSession session) {
+		Long userId = (Long) session.getAttribute("user_id");
+		User user = userServ.findUserById(userId);
+		if (result.hasErrors()) {
+			return "mylocations.jsp";
+		} else {
+			interaction.setOwner(user);//allows me to set user ID to specific book
+			interaction.setTestimonial("empty");
+			interaction.setNumberOfLikes(0);
+			interServ.createInteraction(interaction);
+			return "redirect:/userdash";
+		}
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    @RequestMapping(value="/userdash/{id}", method=RequestMethod.DELETE)
+    public String destroy(@PathVariable("id") Long id) {
+        interServ.deleteInteraction(id);
+        return "redirect:/userdash";
+    }
 	
 	// ------------- Login and Registration Methods --------------------
 	
 	
-   
     // brings them to the login page
     @GetMapping("/login")
     public String login(Model model) {
