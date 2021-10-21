@@ -1,112 +1,55 @@
-/**
- * 
- */
+var map;
+      var infowindow;
+      var service;
 
-/*
-	Trying to figure out how to use googles nearby search api,
-	but then once I get the information save it into an array, then loop through
-	and put markers on the map where those locations are.
-	
-	Created a model for locations so user can save locations
-*/
- 
-
-let map, infoWindow;
-let geocoder;
-let places;
-
-	// initializes the map
-	function initMap() {
-		var location = {
-			lat: 40.000,
-			lng: -79.000
-		}
-		var options = {
-			center: location,
-			zoom: 13
-		}
+      function initMap() {
+          var messiah = {
+              lat: 40.158350,
+              lng: -76.987454
+          };
+          var options = {
+				center: location,
+				zoom: 13
+			}
 		
-	 // Get Location Form
-	 var locationForm = document.getElementById('location-form');
-	 console.log(locationForm)
-	 
-	 
-	 
-	 // Listen for submit from the user
-	 locationForm.addEventListener('submit', geocode)
-	 
-	
-	 
-	
-	 
-	
-	// geocode function find locations
-	 function geocode(e){
-		e.preventDefault();
-		 
-		 
-		 
-		 
-		 
-		 // variable from the information input by user
-		var location = document.getElementById('location-input').value;
-		 console.log(location)
-		 // --------------------------------------------
-		 
-		 
-		 
-		 
-		 
-		 // axios is used to communicate with google api for a request and response
-		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-			params:{
-				address:location, // the request
-				key: 'AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM' // need an api key
-			}	
-		})
-		.then(function(response){ // response from google api
-			console.log(response);
-			var formattedAddress = response.data.results[0].formatted_address;
-			map.setCenter(response.data.results[0].geometry.location)
-			//console.log(response.data.results[0].address_components[0].long_name)
-			var marker = new google.maps.Marker({
-				map: map, 
-				position: response.data.results[0].geometry.location,
-				html: document.getElementById('content'),
-			})
 			
-			
-			
-			// Output formatted address to the jsp file
-			document.getElementById('formatted-address').innerHTML = formattedAddress;
-			console.log(formattedAddress)
-		
-		})
-		.catch(function(error){
-			console.log(error);
-		})
-		
-	}
-	  
-	  // ------------------------------------------------------------------------
-	  
-	  
-	  
-	  
-	  
-	
-	  // Get the users location via their browser ---------------------------------
-	  if(navigator.geolocation){
+          // function to get the users location and use that location to display pins
+          function userLocation(){ 
+		if(navigator.geolocation){
 		console.log("geolocation is here!");
 		
 		navigator.geolocation.getCurrentPosition((loc) => {
 			location.lat = loc.coords.latitude;
 			location.lng = loc.coords.longitude;
 			
-			// instantiate a map ----- ???????????????????????
+			userLocation= { // variable to input into request variable to be used
+				lat: location.lat,
+				lng: location.lng
+			}
+			// instantiate a map --------------------------------------- 
 		  	map = new google.maps.Map(document.getElementById("map"), options);
+		  	
+		  	// within the callback function i am able to grab the lat and lng
+		  	var marker = new google.maps.Marker({
+              position: userLocation,
+              map: map,
+              title: 'You are here!'
+          });
+          // variable to show the specific items i want to find
+          var request = {
+              location: userLocation,
+              radius: 10000,
+              name: "recycle",
+              type: ['establishment']
+          }
+          infowindow = new google.maps.InfoWindow();
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+		  	//console.log(location.lat)
+		  
+			
 		},
-		(err) => { // if the user said no to allowing location services
+		(err) =>  { // if the user said no to allowing location services
 			console.log("user said no");
 			infoWindow = new google.maps.InfoWindow;
 			map = new google.maps.Map(document.getElementById("map"), options)
@@ -117,86 +60,51 @@ let places;
 			infoWindow = new google.maps.InfoWindow;
 			map = new google.maps.Map(document.getElementById("map"), options);
 		}
-		
-		// -----------------------------------------------------
-		
-		
-		
-		
-		// Trying to get results based off of a Nearby Places search
-		var service = new google.maps.places.PlacesService(map);
-		service.textSearch(request, callback);
-	 
-	 	function callback(results, status){
-		if(status == google.maps.places.PlacesServiceStatus.OK){
-			for(var i = 0; i < results.length; i++){
-				var place = results[i];
-				addMarker(results[i]);
-			}
-			console.log(place)
-		}
-	}
-		// --------------------------------------------------------
-
-		
-
-		
-		
-		
-		
-		
-	  
-	  // Methods for the autocomplete funcion ---------
-	  const autocomplete = new google.maps.places.Autocomplete(document.getElementById("location-input"),{
-		componentRestrictions: {'country': ['us']},
-		fields: ['formatted_address','geometry', 'name'],
-		types: ['establishment']
-	})
-	
-		service.findPlaceFromQuery(request, function(results, status){
-			if(status === google.maps.places.PlacesServiceStatus.OK){
-				for(var i = 0;i < results.length; i++){
-					createMarker(results[i]);
-				}
-				map.setCenter(results[0].geometry.location)
-			}
-		})
-	  autocomplete.addListener("place_changed", () => {
-		const place = autocomplete.getPlace();
-		new google.maps.Marker({
-			position: place.geometry.location,
-			title: place.name,
-			map: map,
-			animation: google.maps.Animation.DROP,
+        }  
 			
-		})
-	  // -----------------------------------------------
-	  
-	  
-	  
-	  
-	  
-	  
-		// Trying to get the info window to open
-		const infowindow = new google.maps.InfoWindow;
-		 
-		marker.addListener("click", () =>{
-			console.log('click')
-			infowindow.open({
-				anchor: marker,
-				map, 
-				shouldFocus: false,
-			})
-		})
-	})
-	  
-	
-	
-	
-	
-	}
-	
-	
-	
-	
-	
+		userLocation()
+		
+			
+		
+
+          
+          
+
+      }
+
+      function callback(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            results.forEach(createMarker);
+          }
+      }
+      
+
+      function createMarker(place) {
+          var placeLoc = place.geometry.location;
+          var marker = new google.maps.Marker({
+              map: map,
+              icon: {
+                  url: 'http://maps.gstatic.com/mapfiles/circle.png',
+                  anchor: new google.maps.Point(10, 10),
+                  scaledSize: new google.maps.Size(10, 17)
+              },
+              position: place.geometry.location
+          });
+          marker.addListener('click', function() {
+
+            var request = {
+                reference: place.reference
+            };
+            service.getDetails(request, function(details, status) {
+
+              infowindow.setContent([
+                details.name,
+                details.formatted_address,
+                details.website,
+                details.rating,
+                details.formatted_phone_number].join("<br />"));
+              infowindow.open(map, marker);
+            });
+
+          })
+      }
