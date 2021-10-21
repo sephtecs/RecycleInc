@@ -9,8 +9,6 @@
 <title>Insert title here</title>
 	<!-- for Bootstrap CSS -->
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<!-- YOUR own local CSS -->
-	<link rel="stylesheet" href="/css/main.css"/>
 	<!-- For any Bootstrap that uses JS or jQuery-->
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 	<style>iframe {width:100%;height:100%;}</style>
@@ -59,6 +57,8 @@
 	
 	
 	
+
+	
 	
 	
 	
@@ -78,10 +78,10 @@
 			</tbody>
 			
 	</table>
-	<script async defer
-	  src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap">
-	</script>
 	<script src="/resources/js/maps.js"></script>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM&libraries=places&callback=initMap">
+	</script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>

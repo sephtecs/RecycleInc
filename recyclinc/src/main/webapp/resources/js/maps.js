@@ -2,14 +2,20 @@
  * 
  */
 
-
+/*
+	Trying to figure out how to use googles nearby search api,
+	but then once I get the information save it into an array, then loop through
+	and put markers on the map where those locations are.
+	
+	Created a model for locations so user can save locations
+*/
  
 
 let map, infoWindow;
 let geocoder;
 let places;
 
-
+	// initializes the map
 	function initMap() {
 		var location = {
 			lat: 40.000,
@@ -20,101 +26,60 @@ let places;
 			zoom: 13
 		}
 		
-	  if(navigator.geolocation){
-		console.log("geolocation is here!");
-		
-		navigator.geolocation.getCurrentPosition((loc) => {
-			location.lat = loc.coords.latitude;
-			location.lng = loc.coords.longitude;
-			
-		  	map = new google.maps.Map(document.getElementById("map"), options);
-		    /*center: { lat: -34.397, lng: 150.644 },
-		    zoom: 13,
-		  });
-		  */
-		},
-		(err) => {
-			console.log("user said no");
-			map = new google.maps.Map(document.getElementById("map"), options)
-		}
-		)
-		}else{
-			console.log('geolocation not supported: ');
-			map = new google.maps.Map(document.getElementById("map"), options);
-		}
-	
-	  geocoder = new google.maps.Geocoder();
-	  infoWindow = new google.maps.InfoWindow;
-	  
-	  autocomplete = new google.maps.places.Autocomplete(document.getElementById("location-input"),{
-		componentRestrictions: {'country': ['us']},
-		fields: ['geometry', 'name'],
-		types: ['establishment']
-	})
-	
-	  autocomplete.addListener("place_changed", () => {
-		const place = autocomplete.getPlace();
-		new google.maps.Marker({
-			position: place.geometry.location,
-			title: place.name,
-			map: map
-		})
-		google.maps.event.addListener(map, 'click', function(event){
-			// Add Marker
-			addMarker({coords:event.latLng})
-		})
-	  
-		// Listen for click on map
-		
-		// Add Marker Function
-		function addMarker(props){
-			var marker = new google.maps.Marker({
-				position:props.coords,
-				map:map
-			})
-		}
-	})
-	  
-	
-	
-	
-	
-	}
 	 // Get Location Form
 	 var locationForm = document.getElementById('location-form');
 	 console.log(locationForm)
 	 
-	 // Listen for submit
+	 
+	 
+	 // Listen for submit from the user
 	 locationForm.addEventListener('submit', geocode)
 	 
-	 // Get input from submit
 	
+	 
 	
+	 
+	
+	// geocode function find locations
 	 function geocode(e){
 		e.preventDefault();
-		
-		 var location = document.getElementById('location-input').value;
-		 console.log(location)
 		 
+		 
+		 
+		 
+		 
+		 // variable from the information input by user
+		var location = document.getElementById('location-input').value;
+		 console.log(location)
+		 // --------------------------------------------
+		 
+		 
+		 
+		 
+		 
+		 // axios is used to communicate with google api for a request and response
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
 			params:{
-				address:location,
-				key: ''
+				address:location, // the request
+				key: 'AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM' // need an api key
 			}	
 		})
-		.then(function(response){
+		.then(function(response){ // response from google api
 			console.log(response);
 			var formattedAddress = response.data.results[0].formatted_address;
-			var lat = response.data.results[0].geometry.location.lat;
-			var lng = response.data.results[0].geometry.location.lng;
 			map.setCenter(response.data.results[0].geometry.location)
+			//console.log(response.data.results[0].address_components[0].long_name)
 			var marker = new google.maps.Marker({
 				map: map, 
-				position: response.data.results[0].geometry.location
+				position: response.data.results[0].geometry.location,
+				html: document.getElementById('content'),
 			})
 			
-			// Output to app
+			
+			
+			// Output formatted address to the jsp file
 			document.getElementById('formatted-address').innerHTML = formattedAddress;
+			console.log(formattedAddress)
 		
 		})
 		.catch(function(error){
@@ -122,6 +87,115 @@ let places;
 		})
 		
 	}
+	  
+	  // ------------------------------------------------------------------------
+	  
+	  
+	  
+	  
+	  
+	
+	  // Get the users location via their browser ---------------------------------
+	  if(navigator.geolocation){
+		console.log("geolocation is here!");
+		
+		navigator.geolocation.getCurrentPosition((loc) => {
+			location.lat = loc.coords.latitude;
+			location.lng = loc.coords.longitude;
+			
+			// instantiate a map ----- ???????????????????????
+		  	map = new google.maps.Map(document.getElementById("map"), options);
+		},
+		(err) => { // if the user said no to allowing location services
+			console.log("user said no");
+			infoWindow = new google.maps.InfoWindow;
+			map = new google.maps.Map(document.getElementById("map"), options)
+		}
+		)
+		}else{ // Browser wont support location services
+			console.log('geolocation not supported: ');
+			infoWindow = new google.maps.InfoWindow;
+			map = new google.maps.Map(document.getElementById("map"), options);
+		}
+		
+		// -----------------------------------------------------
+		
+		
+		
+		
+		// Trying to get results based off of a Nearby Places search
+		var service = new google.maps.places.PlacesService(map);
+		service.textSearch(request, callback);
+	 
+	 	function callback(results, status){
+		if(status == google.maps.places.PlacesServiceStatus.OK){
+			for(var i = 0; i < results.length; i++){
+				var place = results[i];
+				addMarker(results[i]);
+			}
+			console.log(place)
+		}
+	}
+		// --------------------------------------------------------
+
+		
+
+		
+		
+		
+		
+		
+	  
+	  // Methods for the autocomplete funcion ---------
+	  const autocomplete = new google.maps.places.Autocomplete(document.getElementById("location-input"),{
+		componentRestrictions: {'country': ['us']},
+		fields: ['formatted_address','geometry', 'name'],
+		types: ['establishment']
+	})
+	
+		service.findPlaceFromQuery(request, function(results, status){
+			if(status === google.maps.places.PlacesServiceStatus.OK){
+				for(var i = 0;i < results.length; i++){
+					createMarker(results[i]);
+				}
+				map.setCenter(results[0].geometry.location)
+			}
+		})
+	  autocomplete.addListener("place_changed", () => {
+		const place = autocomplete.getPlace();
+		new google.maps.Marker({
+			position: place.geometry.location,
+			title: place.name,
+			map: map,
+			animation: google.maps.Animation.DROP,
+			
+		})
+	  // -----------------------------------------------
+	  
+	  
+	  
+	  
+	  
+	  
+		// Trying to get the info window to open
+		const infowindow = new google.maps.InfoWindow;
+		 
+		marker.addListener("click", () =>{
+			console.log('click')
+			infowindow.open({
+				anchor: marker,
+				map, 
+				shouldFocus: false,
+			})
+		})
+	})
+	  
+	
+	
+	
+	
+	}
+	
 	
 	
 	
