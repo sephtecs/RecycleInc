@@ -20,6 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="interactions")
 public class Interaction {
 	
+
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,6 +78,10 @@ public class Interaction {
 
 	public void setOwner(User owner) {
 		this.owner = owner;
+	}
+	
+	public Double getNumberOfLikes() {
+		return numberOfLikes;
 	}
 
 
