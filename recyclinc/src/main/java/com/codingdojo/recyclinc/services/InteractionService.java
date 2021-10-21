@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.codingdojo.recyclinc.models.Interaction;
 import com.codingdojo.recyclinc.repositories.InteractionRepo;
 
+@Service
 public class InteractionService {
 	
 	@Autowired
@@ -38,7 +40,7 @@ public class InteractionService {
 	}
 	
 	//DELETE
-    public void deleteBook(Long id) {
+    public void deleteInteraction(Long id) {
     	System.out.println();
     	interactRepo.deleteById(id);
     }
