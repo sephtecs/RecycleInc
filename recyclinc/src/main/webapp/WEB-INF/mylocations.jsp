@@ -17,6 +17,16 @@
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 	<style>iframe {width:100%;height:100%;}</style>
 	<script src="/resources/js/maps.js"></script>
+	<style>
+
+
+    .link-style {
+        text-decoration: none;
+        color: cyan;
+    }
+
+</style>
+	
 </head>
 
 
@@ -30,21 +40,17 @@
 	</svg>
 	
 	
-
 	 <a class="navbar-brand" style="margin-left:10px" href="/">Recycl-Inc</a>
 		  <div class="collapse navbar-collapse" id="navbarText">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">Home</a>
+		        <a class="nav-link" href="/">Home</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Our Mission</a>
 		      </li>
 	
 		      <li class="nav-item">
-		      <c:if test="${user.id == null}">
-		        <a class="nav-link" href="/login">Login</a>
-		      </c:if>
 		      <c:if test="${user.id != null }">
 		      	<a class="nav-link" href="/userdash/${user.id}">My Dashboard</a>
 		      </c:if>
@@ -54,12 +60,7 @@
 	  <div>
 	  
 	  <div class="login-reg">
-	  <c:if test="${user.id == null }">
-	  	<a href="/register">Sign-up</a>
-	  </c:if>
-	  <c:if test="${user.id != null }">
 	  	<a href="/logout">Logout</a>
-	  </c:if>
 	  </div>
 	  
 	  </div>
@@ -67,18 +68,58 @@
 	</nav>
 	
 	<div class="justify-content-center mx-auto d-flex">
-		<h2 style="color: green">My Recycling Centers</h2>
+		<h2 style="color: green">Welcome to your Recycling Center, <c:out value= " ${user.firstName}"/>!</h2>
 		<hr />
 		<br />
 	</div>
+
+    <div class="container">
+    
+	    <div>
+            <br>
+            <table class="table table-hover table-bordered table-dark">
+                <thead>
+				
+                    <tr>
+                        <th>Address</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                    </tr>
+				<c:forEach items="${allInteractions}" var="interaction">
+                    <tbody>
+                        <tr>
+                            <td>[placeholder for location]</td>
+                            <td><c:out value="${interaction.comment}" /></td>
+                            <td><a href="#">Edit</a> |
+                            <form action="/userdash/${interaction.id}" method="post">
+                           		<input style="display: flex" class="button" type="submit" value="delete">
+                            	<input style="display: flex" class="button" type="hidden" name="_method" value="delete">
+                            </form>
+                            </td>
+                    </tbody>
+			    </c:forEach>
+			    
+            </table>
+            <br>
+            <a href="#" class="button-2">Add location</a>
+            <a href="#" class="button-2">Add comment</a>
+	    </div>
+   	</div>
+    
 	
-	<div class="box-1 justify-content-center mx-auto">
-		<h2 style="margin-left: 10px"><a href="#">Location 1</a></h2>
-		<h2 style="margin-left: 10px"><a href="#">Location 2</a></h2>
-		<h2 style="margin-left: 10px"><a href="#">Location 3</a></h2>
-		<h2 style="margin-left: 10px"><a href="#">Location 4</a></h2>
-		<h2 style="margin-left: 10px"><a href="#">Location 5</a></h2>
-		<h2 style="margin-left: 10px"><a href="#">Location 6</a></h2>
+
+	<div>
+		<h1>Create a New Note</h1>
+			<form:form class="form" action="/userdash/comment" method="post" modelAttribute="interaction">
+			<div style="margin-top: 20px; display: flex" class="form-group">
+	           	<form:errors path="comment" class="text-danger" />
+				<label style="margin-right: 20px; font-size: larger">Leave a note for future reference:</label>
+	            <form:input path="comment" class="form-control" />
+	            <br />
+			</div>
+		<br />
+		<input type="submit" value="Create" class="btn btn-success" />
+		</form:form>
 	</div>
 
 

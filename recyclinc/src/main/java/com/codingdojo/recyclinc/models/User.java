@@ -2,15 +2,12 @@ package com.codingdojo.recyclinc.models;
 
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -54,8 +51,6 @@ public class User {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@OneToMany(mappedBy="owner", fetch = FetchType.LAZY)
-	private List<Interaction> interactions;
     
     public User() {}
 
@@ -65,15 +60,6 @@ public class User {
     
 	public Long getId() {
 		return id;
-	}
-
-	public List<Interaction> getNotes() {
-		return interactions;
-	}
-
-
-	public void setNotes(List<Interaction> interactions) {
-		this.interactions = interactions;
 	}
 
 
