@@ -78,6 +78,58 @@ var map;
           }
       }
       
+      // Get Location Form
+	 var locationForm = document.getElementById('location-form');
+	 console.log(locationForm)
+	 
+	 
+	 
+	 // Listen for submit from the user
+	 locationForm.addEventListener('submit', geocode)
+      function geocode(e){
+		e.preventDefault();
+
+		 // variable from the information input by user
+		var location = document.getElementById('location-input').value;
+		 console.log(location)
+		 // --------------------------------------------
+
+		 // axios is used to communicate with google api for a request and response
+		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+			params:{
+				address:location, // the request
+				key: 'AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM' // need an api key
+			}	
+		})
+		.then(function(response){ // response from google api
+			console.log(response);
+			var userLocal = response.data.results[0].geometry.location
+			
+			map.setCenter(userLocal)
+			
+			var request = {
+              location: userLocal,
+              radius: 10000,
+              name: "recycle",
+              type: ['establishment']
+          }
+          infowindow = new google.maps.InfoWindow();
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+		  	//console.log(location.lat)
+
+
+			
+			// Output formatted address to the jsp file
+			document.getElementById('formatted-address').innerHTML = formattedAddress;
+			console.log(formattedAddress)
+		
+		})
+		.catch(function(error){
+			console.log(error);
+		})
+		
+	}
 
       function createMarker(place) {
           var placeLoc = place.geometry.location;
