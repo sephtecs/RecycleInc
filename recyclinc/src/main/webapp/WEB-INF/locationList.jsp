@@ -80,7 +80,7 @@
 	</table>
 	<script src="/resources/js/maps.js"></script>
 	<script async defer
-	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM&libraries=places&callback=initMap">
+	  src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap">
 	</script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/webjars/jquery/jquery.min.js"></script>
