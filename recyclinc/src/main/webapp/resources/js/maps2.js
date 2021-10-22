@@ -45,20 +45,12 @@ let places;
 	// geocode function find locations
 	 function geocode(e){
 		e.preventDefault();
-		 
-		 
-		 
-		 
-		 
+
 		 // variable from the information input by user
 		var location = document.getElementById('location-input').value;
 		 console.log(location)
 		 // --------------------------------------------
-		 
-		 	
-		 
-		 
-		 
+
 		 // axios is used to communicate with google api for a request and response
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
 			params:{
@@ -77,9 +69,6 @@ let places;
 				html: document.getElementById('content'),
 			})
 	
-			
-			
-			
 			// Output formatted address to the jsp file
 			document.getElementById('formatted-address').innerHTML = formattedAddress;
 			console.log(formattedAddress)
