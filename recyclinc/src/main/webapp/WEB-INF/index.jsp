@@ -12,8 +12,7 @@
 	<!-- YOUR own local CSS -->
 	<link rel="stylesheet" href="/css/main.css"/>
 	<!-- For any Bootstrap that uses JS or jQuery-->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
@@ -99,37 +98,24 @@
 								<div class="class="edge d-none d-xl-block">
 									<div class="text-container bg-white d-flex flex-column">
 							            <p style="margin-left: 20px"><strong>Doloremque vero ex debitis veritatis?</strong></p>
-							            <p style="margin-left: 20px" class="text-muted">
-							              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
-							              nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
-							              alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-							            </p>
-  										<p style="margin-left: 20px" class="text-muted">
-							              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
-							              eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-							              sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
-							            </p>
-							            <p style="margin-left: 20px"><strong>Doloremque vero ex debitis veritatis?</strong></p>
-							            <p style="margin-left: 20px" class="text-muted">
-							              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
-							              nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
-							              alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-							            </p>
+
 									</div>
 								</div>
 							</div>
-							<div margin-top:20px" class="rounded mx-auto d-block image-edge-container image-edge-container-left d-flex d-xl-block background-transparent">
+<!-- 							<div margin-top:20px" class="rounded mx-auto d-block image-edge-container image-edge-container-left d-flex d-xl-block background-transparent">
 								<div class="image-container">
 									<image src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80">
 									</image>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 		</div>
 	</div>
 </div>
+
+<div id="map"></div>
 
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
@@ -318,6 +304,13 @@
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+	<script src="/resources/js/maps.js"></script>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfjx3zVhKYGy-W6c6_ib6Q9KA55v0o1nM&libraries=places&callback=initMap">
+	</script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
