@@ -86,6 +86,7 @@ var map;
 	 
 	 // Listen for submit from the user
 	 locationForm.addEventListener('submit', geocode)
+	 
       function geocode(e){
 		e.preventDefault();
 
