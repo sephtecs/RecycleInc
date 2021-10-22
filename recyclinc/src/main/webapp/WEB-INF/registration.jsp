@@ -73,7 +73,7 @@
                     value=""
                   />
                   <label class="form-check-label">
-                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    I agree with all statements in the<a href="#!" class="text-body"><u>Terms of service</u></a>
                   </label>
                 </div>
 
@@ -81,7 +81,7 @@
                   <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login" class="fw-bold text-body"><u>Login here</u></a></p>
+                <p class="text-center text-muted mt-5 mb-0">Already have an account?<a href="/login" class="fw-bold text-body"><u>Login here</u></a></p>
 
               </form:form>
 
