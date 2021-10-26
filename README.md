@@ -6,3 +6,9 @@ The website will be aiming to educate people further about what recycling, hazar
 
 
 The technologies that we have implemented so far consist of Google Maps API.
+
+<hr/>
+
+<h3>Here is the homepage of the project</h3>
+
+<img src="screenshots/java-project.png"/>
