@@ -80,10 +80,6 @@ public class Interaction {
 		this.owner = owner;
 	}
 	
-	public Double getNumberOfLikes() {
-		return numberOfLikes;
-	}
-
 
 
 	public Long getId() {
