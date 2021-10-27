@@ -102,36 +102,19 @@
 											</div>
 										</div>
 										<div style="margin-top:200px" class="text-container bg-white d-flex flex-column">
-										      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>      
-										      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>      
-										      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>
-										      									      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>      
-										      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>      
-										      <p>
-										        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-										        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-										        eum harum corrupti dicta, aliquam sequi voluptate quas.
-										      </p>
+											<label>Post Type:</label>
+												<select class="post-type">
+												  <option value="hot" selected>Hot</option>
+												  <option value="new">New</option>
+												  <option value="top">Top</option>
+												  <option value="random">Random</option>
+												  <option value="rising">Rising</option>
+												  <option value="controversial">Controversial</option>
+												</select>
+											<div class="post-container"></div>
+										
+										     
+										      
 										</div>
 									</div>
 								</div>
@@ -295,6 +278,7 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/resources/js/reddit.js"></script>
 
 </body>
 </html>
