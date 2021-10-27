@@ -12,3 +12,7 @@ The technologies that we have implemented so far consist of Google Maps API.
 <h3>Here is the homepage of the project</h3>
 
 <img src="screenshots/java-project.png"/>
+
+
+<hr/>
+<h3>Still a work in progress<h3/>
